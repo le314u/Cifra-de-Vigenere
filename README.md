@@ -61,7 +61,51 @@ Texto original: `HELLO`
 
 A Cifra de Vigenère foi um marco na história da criptografia e, embora hoje seja considerada insegura, ainda é uma excelente maneira de entender os princípios básicos da criptografia. Sua técnica de substituição dinâmica fez dela uma ferramenta importante por séculos e continua sendo estudada como um exemplo de cifra polialfabética.
 
-## Referências
 
-- "Cryptography and Network Security", William Stallings.
-- "The Code Book", Simon Singh.
+# Detalhes da Minha Implmentação
+
+## Como Funciona a Criação da Chave?
+
+A chave é construída a partir de uma string como exeomplo pegaresmo '123456789'. O processo de criação envolve os seguintes passos:
+
+1. **Determinação do Tamanho da Chave**:
+   - O número fornecido é '123456789'. O tamanho da chave é 9, que é o número de caracteres presentes.
+
+2. **Escolha de Dois Números Primos Entre Si**:
+   - A chave será dividida com base em dois números **que são primos entre si** e cuja soma é igual ao tamanho da chave (9). Os números primos são escolhidos de maneira que a soma deles seja 9 e o produto seja o maior possível.
+   - Para o número 9, os dois números que atendem a essa condição são **4 e 5**, pois:
+     - \(4 + 5 = 9\)
+     - \(4 \times 5 = 20\)
+     - E **4 e 5** são primos entre si (não têm divisores comuns além de 1).
+
+3. **Divisão da Chave**:
+   - A chave '123456789' é dividida com base nos números escolhidos (4 e 5):
+     - Parte 1: '1234' (primeira parte da chave)
+     - Parte 2: '56789' (segunda parte da chave)
+
+4. **Criação do Arranjo de Pares**:
+   - A partir dessas duas partes, um arranjo é gerado seguindo um padrão numérico específico:
+     - Os índices são combinados de forma a formar pares: `15, 26, 37, 48, 19, 25, 36, 47, 18, 29, 35...`
+     - O arranjo continua até os números se repetirem.
+
+### Exemplo de Arranjo Criado:
+
+| Índice A | Índice B | Par Criado |
+|----------|----------|------------|
+| 1        | 5        | 15         |
+| 2        | 6        | 26         |
+| 3        | 7        | 37         |
+| 4        | 8        | 48         |
+| 1        | 9        | 19         |
+| 2        | 5        | 25         |
+| 3        | 6        | 36         |
+| 4        | 7        | 47         |
+| 1        | 8        | 18         |
+| 2        | 9        | 29         |
+| 3        | 5        | 35         |
+| ...      | ...      | ...        |
+
+Esses pares são usados para manipular a cifra durante o processo de criptografia e decriptação.
+
+## Porque isso?
+uma chave de 9 caracteres virou uma chave de 20 pares ordenados ou seja uma chave de 40 caracteres

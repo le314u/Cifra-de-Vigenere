@@ -1,4 +1,4 @@
-# Cifra de Vigenère
+# [Cifra de Vigenère](http://314-u.com/Cifra-de-Vigenere/index.html)
 
 A **Cifra de Vigenère** é uma técnica de cifra polialfabética utilizada para criptografar e descriptografar mensagens. Criada por Blaise de Vigenère no século XVI, essa cifra utiliza uma chave para modificar as letras do texto original. Sua principal vantagem sobre outras cifras simples, como a Cifra de César, é que ela emprega um conjunto de substituições dinâmicas, dificultando a quebra da cifra por análise de frequência.
 
